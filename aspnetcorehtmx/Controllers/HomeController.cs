@@ -25,6 +25,10 @@ namespace aspnetcorehtmx.Controllers
 
         public IActionResult Privacy()
         {
+            if(this.ControllerContext.HttpContext.Items["isHtmxRequest"] == "true")
+            {
+                return View("~/Views/Home/Partials/Privacy-Partial.cshtml");
+            }
             return View();
         }
 
