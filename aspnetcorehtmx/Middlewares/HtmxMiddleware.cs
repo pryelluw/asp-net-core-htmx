@@ -17,11 +17,11 @@ public class HtmxMiddleware
         context.Request.Headers.TryGetValue("HX-Request", out var isHtmxRequest);
         if(string.IsNullOrEmpty(isHtmxRequest)) 
         {
-            context.Items["isHtmxRequest"] = "false";
+            context.Items["isHtmxRequest"] = false;
         }
         else 
         {
-            context.Items["isHtmxRequest"] = "true";
+            context.Items["isHtmxRequest"] = true;
         } 
         await _next(context);
     }
