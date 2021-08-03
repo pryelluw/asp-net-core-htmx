@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using aspnetcorehtmx.Models;
+using System;
 
 namespace aspnetcorehtmx.Controllers
 {
@@ -23,7 +24,7 @@ namespace aspnetcorehtmx.Controllers
         {
 
             this.ControllerContext.HttpContext.Items.TryGetValue("isHtmxRequest", out var isHtmxRequest);
-            if(true.Equals(isHtmxRequest))
+            if(isHtmxRequest.Equals(true))
             {
                 return View("~/Views/Home/Partials/Privacy-Partial.cshtml");
             }
